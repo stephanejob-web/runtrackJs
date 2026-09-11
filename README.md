@@ -5,7 +5,100 @@ Front-end runtrack, one folder per day, one folder per job.
 ```
 jour06/   Bootstrap 5 and jQuery
 jour07/   Materialize
+bigjob/   Jours 9 et 10 — site de gestion des présences
 ```
+
+---
+
+# BigJob — Site La Plateforme_ (jours 9 et 10)
+
+Site de gestion des présences dans les locaux. **Front uniquement** : la
+persistance est simulée avec `localStorage`, amorcé depuis un fichier JSON.
+
+## Lancer le projet
+
+Les données sont chargées avec `fetch()`, ce qui ne marche pas en ouvrant le
+fichier par double-clic (`file://`). Il faut un serveur :
+
+```bash
+cd bigjob && python3 -m http.server 8000
+```
+
+Puis <http://localhost:8000>.
+
+## Comptes de démonstration
+
+Ils sont aussi rappelés sur la page d'accueil.
+
+| Rôle | Identifiants |
+|---|---|
+| Administrateur | `awa.diallo@laplateforme.io` / `admin123` |
+| Modérateur | `marin.costa@laplateforme.io` / `modo123` |
+| Étudiant | `lea.nguyen@laplateforme.io` / `etudiant123` |
+
+Le bouton « Réinitialiser les données de démonstration » en bas de l'accueil
+vide le `localStorage` et recharge le JSON.
+
+## Arborescence
+
+```
+bigjob/
+├── index.html            inscription et connexion
+├── calendrier.html       calendrier et demandes de présence
+├── backoffice.html       modération des demandes
+├── administration.html   gestion des droits
+├── styles/style.css
+├── js/
+│   ├── donnees.js        JSON → localStorage, accès aux données
+│   ├── session.js        session simulée, garde d'accès, navbar
+│   ├── auth.js           inscription et connexion
+│   ├── calendrier.js
+│   ├── backoffice.js
+│   └── administration.js
+├── assets/logo.svg
+└── data/donnees.json
+```
+
+## Les règles
+
+- **Inscription réservée à l'école.** Le domaine de l'adresse doit être
+  `laplateforme.io`, comparé sans tenir compte de la casse. Le domaine autorisé
+  est dans le JSON, pas en dur dans le code.
+- **Session simulée.** Une seule entrée de `localStorage` contient l'identifiant
+  connecté ; elle survit au rafraîchissement, donc l'utilisateur reste affiché
+  comme « Connecté ».
+- **Une date passée est figée.** Ni l'étudiant ni le modérateur ne peuvent plus
+  rien changer : les jours passés du calendrier sont désactivés, et les lignes
+  passées du backoffice n'ont plus de boutons mais la mention « Décision figée ».
+- **Trois rôles.** L'étudiant voit le calendrier ; le modérateur ajoute le
+  backoffice ; l'administrateur ajoute l'administration. Les pages sont gardées
+  côté JavaScript : une URL saisie à la main renvoie à l'accueil.
+- **Un administrateur ne peut pas se rétrograder lui-même**, sinon il perdrait
+  l'accès à la page qui permet de revenir en arrière.
+
+## Ce qui a été vérifié dans le navigateur
+
+| Parcours | Résultat |
+|---|---|
+| Inscription hors domaine (`@gmail.com`, `@laplateforme.io.fr`, sans `@`) | refusée |
+| Inscription en `@LAPLATEFORME.IO` | acceptée, casse ignorée |
+| Email déjà pris, mot de passe court, champs vides | refusés avec le bon message |
+| Calendrier : 10 jours passés | désactivés, clic sans effet |
+| Calendrier : clic sur un jour à venir, puis re-clic | demande créée puis annulée |
+| Étudiant sur `backoffice.html` / `administration.html` | redirigé |
+| Rafraîchissement | session et demandes conservées |
+| Backoffice : accepter / refuser | statuts et compteurs à jour |
+| Backoffice : 3 demandes passées | aucun bouton, « Décision figée » |
+| Administration : promotions et rétrogradations | appliquées et persistées |
+| Administration : sa propre ligne | aucun bouton, « Votre compte » |
+| Responsive à 390 px | 0 débordement, navbar en burger |
+
+## Limite assumée
+
+Les mots de passe sont stockés en clair dans le `localStorage`. C'est une
+conséquence directe du « front uniquement » demandé par le sujet : sans serveur,
+il n'y a ni hachage ni session réelle possible. À ne pas reproduire en
+production.
 
 ---
 
