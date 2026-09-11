@@ -1,6 +1,15 @@
-# runtrackJs — Jour 6 : Bootstrap
+# runtrackJs
 
-Bootstrap 5 and jQuery exercises, one folder per job.
+Front-end runtrack, one folder per day, one folder per job.
+
+```
+jour06/   Bootstrap 5 and jQuery
+jour07/   Materialize
+```
+
+---
+
+# Jour 6 — Bootstrap
 
 ## Layout
 
@@ -54,7 +63,59 @@ it — pressing `D`, `C`, `D`, `G`, `C` still opens the modal on the last `C`.
 The vertical offset of the salmon blocks comes from `align-items-md-end` and
 `align-self-md-start`, so it only applies from the `md` breakpoint on.
 
-## Credit
+---
 
-`papillon.jpg` comes from Wikimedia Commons
-([Papilio machaon Mitterbach 01](https://commons.wikimedia.org/wiki/File:Papilio_machaon_Mitterbach_01.jpg)).
+# Jour 7 — Materialize
+
+`Job 00` (create the repository and the folders) and `Job 00.9` (read the
+Materialize documentation) produce no file, so the deliverables are `job01` to
+`job06`.
+
+## Layout
+
+```
+jour07/
+├── job01/   index.html
+├── job02/   index.html
+├── job03/   index.html
+├── job04/   index.html
+├── job05/   index.html, assets/
+└── job06/   index.html, assets/
+```
+
+| Job | Subject |
+|---|---|
+| `job01` | Plain HTML page: header with a nav, signup form, footer with four links |
+| `job02` | Include the Materialize 1.0.0 CDN and style the header |
+| `job03` | Style the footer |
+| `job04` | Modernise the form and give every input an icon |
+| `job05` | A themed page of its own: header with a logo and links, cards of several sizes |
+| `job06` | Add a Materialize Carousel, initialised in JavaScript |
+
+No CSS file of our own is used from `job02` on, only Materialize classes, as the
+subject requires.
+
+## A word on the intermediate states
+
+`job02` and `job03` load Materialize while the form still carries its plain HTML
+markup. Materialize hides native radios and checkboxes and expects
+`<label><input><span>text</span></label>` instead, so those controls look
+invisible on those two pages. That is the subject's own sequencing — `job04` is
+the job that rewrites the form, and the controls are back from there on.
+
+## Job 06 — Carousel
+
+The three carousel pictures are `assets/cafe-01.jpg`, `cafe-03.jpg` and
+`cafe-05.jpg`. The `assets` folder holds five images in total because the page
+cards use the other two.
+
+The component is initialised with `M.Carousel.init()` — without that call it is
+just a stack of images. Two floating buttons call `prev()` and `next()`, and a
+`setInterval` advances it every four seconds, paused on mouse hover.
+
+## Credits
+
+- `jour06/*/papillon.jpg` — Wikimedia Commons,
+  [Papilio machaon Mitterbach 01](https://commons.wikimedia.org/wiki/File:Papilio_machaon_Mitterbach_01.jpg)
+- `jour07/job05/assets/`, `jour07/job06/assets/` — Wikimedia Commons, cappuccino
+  pictures
