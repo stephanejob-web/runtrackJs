@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grille responsive | Job 03</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        /* Les blocs de couleur de la maquette. La mise en page, elle, est
+           entièrement gérée par le système de grilles de Bootstrap. */
+        .bloc {
+            border-radius: .25rem;
+            padding: .5rem;
+            font-size: .75rem;
+            color: rgba(0, 0, 0, .55);
+            height: 100%;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .bloc-cyan {
+            background-color: #8ed8de;
+            min-height: 90px;
+        }
+
+        .bloc-bleu {
+            background-color: #93a4e9;
+            min-height: 110px;
+        }
+
+        .bloc-violet {
+            background-color: #c48fe2;
+            min-height: 70px;
+        }
+
+        .bloc-saumon {
+            background-color: #f09c87;
+            min-height: 40px;
+        }
+
+        /* Hauteur donnée à la dernière rangée pour que le décalage vertical
+           des blocs saumon soit visible sur desktop. */
+        @media (min-width: 768px) {
+            .rangee-saumon {
+                min-height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <div class="container-fluid p-3">
+
+        <!-- ============ Bandeau : pleine largeur sur tous les supports ============ -->
+        <div class="row g-3 mb-3">
+            <div class="col-12">
+                <div class="bloc bloc-cyan">col-12</div>
+            </div>
+        </div>
+
+        <!-- ============ Trois blocs bleus ============
+             Desktop : trois colonnes égales.
+             Mobile  : le premier prend toute la largeur, les deux autres se partagent la ligne. -->
+        <div class="row g-3 mb-3">
+            <div class="col-12 col-md-4">
+                <div class="bloc bloc-bleu">col-12 col-md-4</div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="bloc bloc-bleu">col-6 col-md-4</div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="bloc bloc-bleu">col-6 col-md-4</div>
+            </div>
+        </div>
+
+        <!-- ============ Deux blocs violets ============
+             Desktop : un large à gauche, un plus étroit à droite.
+             Mobile  : un étroit centré, puis un large en dessous. -->
+        <div class="row g-3 mb-3">
+            <div class="col-6 offset-3 col-md-7 offset-md-0">
+                <div class="bloc bloc-violet">col-6 offset-3 · col-md-7</div>
+            </div>
+            <div class="col-10 offset-1 col-md-5 offset-md-0">
+                <div class="bloc bloc-violet">col-10 offset-1 · col-md-5</div>
+            </div>
+        </div>
+
+        <!-- ============ Trois blocs saumon ============
+             Desktop : le premier est aligné en haut, les deux autres en bas, séparés par un décalage.
+             Mobile  : trois colonnes égales alignées sur la même ligne. -->
+        <div class="row g-3 rangee-saumon align-items-md-end">
+            <div class="col-4 col-md-2 align-self-md-start">
+                <div class="bloc bloc-saumon">col-4 col-md-2</div>
+            </div>
+            <div class="col-4 col-md-3 offset-md-2">
+                <div class="bloc bloc-saumon">col-4 col-md-3 offset-md-2</div>
+            </div>
+            <div class="col-4 col-md-4 offset-md-1">
+                <div class="bloc bloc-saumon">col-4 col-md-4 offset-md-1</div>
+            </div>
+        </div>
+
+        <!-- Repère de lecture, alimenté par script.js -->
+        <p class="text-center text-muted small mt-4 mb-0">
+            Support courant : <span class="badge bg-secondary" id="support-courant">…</span>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
