@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Création de compte | Job 03</title>
+    <title>Création de compte | Job 04</title>
 
     <!-- Materialize 1.0.0 via CDN, aucun fichier CSS de notre côté -->
     <link rel="stylesheet"
@@ -41,84 +41,143 @@
         </ul>
     </header>
 
-    <!-- ============ Formulaire de création de compte ============ -->
-    <section>
-        <h1>Création de compte</h1>
+    <!-- ============ Formulaire de création de compte ============
+         La carte porte le design, input-field + prefix place une icône Material
+         devant chaque champ, et les radios / checkboxes passent au balisage
+         attendu par Materialize : <label><input><span>libellé</span></label>. -->
+    <main class="container">
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l8 offset-l2">
+                <div class="card z-depth-2">
+                    <div class="card-content">
+                        <span class="card-title">Création de compte</span>
 
-        <form action="index.html" method="post">
+                        <form action="index.html" method="post">
 
-            <fieldset>
-                <legend>Civilité</legend>
+                            <!-- Civilité -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <p class="grey-text text-darken-1">
+                                        <i class="material-icons tiny">badge</i> Civilité
+                                    </p>
 
-                <input type="radio" id="civilite-madame" name="civilite" value="madame" checked>
-                <label for="civilite-madame">Madame</label>
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" type="radio" name="civilite" value="madame"
+                                                checked>
+                                            <span>Madame</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" type="radio" name="civilite" value="monsieur">
+                                            <span>Monsieur</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" type="radio" name="civilite" value="autre">
+                                            <span>Autre</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
 
-                <input type="radio" id="civilite-monsieur" name="civilite" value="monsieur">
-                <label for="civilite-monsieur">Monsieur</label>
+                            <!-- Identité -->
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">person</i>
+                                    <input type="text" id="prenom" name="prenom" required>
+                                    <label for="prenom">Prénom</label>
+                                </div>
 
-                <input type="radio" id="civilite-autre" name="civilite" value="autre">
-                <label for="civilite-autre">Autre</label>
-            </fieldset>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">person_outline</i>
+                                    <input type="text" id="nom" name="nom" required>
+                                    <label for="nom">Nom</label>
+                                </div>
+                            </div>
 
-            <fieldset>
-                <legend>Identité</legend>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">home</i>
+                                    <input type="text" id="adresse" name="adresse" required>
+                                    <label for="adresse">Adresse</label>
+                                </div>
+                            </div>
 
-                <p>
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="prenom" required>
-                </p>
+                            <!-- Identifiants -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">email</i>
+                                    <input type="email" id="email" name="email" required>
+                                    <label for="email">Adresse email</label>
+                                </div>
+                            </div>
 
-                <p>
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
-                </p>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input type="password" id="motdepasse" name="motdepasse" required>
+                                    <label for="motdepasse">Mot de passe</label>
+                                </div>
 
-                <p>
-                    <label for="adresse">Adresse</label>
-                    <input type="text" id="adresse" name="adresse" required>
-                </p>
-            </fieldset>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">lock_outline</i>
+                                    <input type="password" id="motdepasse-confirmation"
+                                        name="motdepasse_confirmation" required>
+                                    <label for="motdepasse-confirmation">Confirmation</label>
+                                </div>
+                            </div>
 
-            <fieldset>
-                <legend>Identifiants</legend>
+                            <!-- Passions -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <p class="grey-text text-darken-1">
+                                        <i class="material-icons tiny">favorite</i> Passions
+                                    </p>
 
-                <p>
-                    <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" required>
-                </p>
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" name="passions[]" value="informatique">
+                                            <span><i class="material-icons tiny">computer</i> Informatique</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" name="passions[]" value="voyages">
+                                            <span><i class="material-icons tiny">flight</i> Voyages</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" name="passions[]" value="sport">
+                                            <span><i class="material-icons tiny">fitness_center</i> Sport</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" name="passions[]" value="lecture">
+                                            <span><i class="material-icons tiny">menu_book</i> Lecture</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
 
-                <p>
-                    <label for="motdepasse">Mot de passe</label>
-                    <input type="password" id="motdepasse" name="motdepasse" required>
-                </p>
-
-                <p>
-                    <label for="motdepasse-confirmation">Confirmation du mot de passe</label>
-                    <input type="password" id="motdepasse-confirmation" name="motdepasse_confirmation" required>
-                </p>
-            </fieldset>
-
-            <fieldset>
-                <legend>Passions</legend>
-
-                <input type="checkbox" id="passion-informatique" name="passions[]" value="informatique">
-                <label for="passion-informatique">Informatique</label>
-
-                <input type="checkbox" id="passion-voyages" name="passions[]" value="voyages">
-                <label for="passion-voyages">Voyages</label>
-
-                <input type="checkbox" id="passion-sport" name="passions[]" value="sport">
-                <label for="passion-sport">Sport</label>
-
-                <input type="checkbox" id="passion-lecture" name="passions[]" value="lecture">
-                <label for="passion-lecture">Lecture</label>
-            </fieldset>
-
-            <p>
-                <button type="submit">Créer mon compte</button>
-            </p>
-        </form>
-    </section>
+                            <div class="row">
+                                <div class="col s12 right-align">
+                                    <button class="btn waves-effect waves-light teal darken-2" type="submit">
+                                        Créer mon compte
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- ============ Pied de page ============
          page-footer donne la structure Materialize, la classe de couleur teal
