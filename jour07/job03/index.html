@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Création de compte | Job 02</title>
+    <title>Création de compte | Job 03</title>
 
     <!-- Materialize 1.0.0 via CDN, aucun fichier CSS de notre côté -->
     <link rel="stylesheet"
@@ -120,14 +120,37 @@
         </form>
     </section>
 
-    <!-- ============ Pied de page ============ -->
-    <footer>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="index.html">Inscription</a></li>
-            <li><a href="index.html">Connexion</a></li>
-            <li><a href="index.html">Rechercher</a></li>
-        </ul>
+    <!-- ============ Pied de page ============
+         page-footer donne la structure Materialize, la classe de couleur teal
+         le colore, et la grille row/col aligne les deux blocs. -->
+    <footer class="page-footer teal darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5 class="white-text">LaPlateforme_</h5>
+                    <p class="grey-text text-lighten-4">
+                        La grande école du numérique pour tous, ouverte sans condition de diplôme.
+                    </p>
+                </div>
+
+                <div class="col s12 m6">
+                    <h5 class="white-text">Navigation</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Accueil</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Inscription</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Connexion</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Rechercher</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright teal darken-3">
+            <div class="container">
+                © 2026 LaPlateforme_
+                <a class="grey-text text-lighten-4 right" href="index.html">Mentions légales</a>
+            </div>
+        </div>
     </footer>
 
 </body>
