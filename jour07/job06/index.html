@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Torréfacteur | Job 05</title>
+    <title>Torréfacteur | Job 06</title>
 
     <!-- Materialize 1.0.0 via CDN, aucun fichier CSS de notre côté -->
     <link rel="stylesheet"
@@ -32,6 +32,38 @@
             </div>
         </nav>
     </header>
+
+    <!-- ============ Carousel ============
+         Le composant Materialize ne fonctionne pas avec le seul CSS : il est
+         initialisé plus bas via M.Carousel.init(). Les trois images viennent du
+         dossier assets. -->
+    <section class="container">
+        <h5 class="grey-text text-darken-1" style="letter-spacing:.12em">À LA UNE</h5>
+
+        <div class="carousel" id="carousel-cafes">
+            <a class="carousel-item" href="#un!">
+                <img src="assets/cafe-01.jpg" alt="Cappuccino avec latte art posé sur une table en bois">
+            </a>
+            <a class="carousel-item" href="#deux!">
+                <img src="assets/cafe-03.jpg" alt="Cappuccino avec un coeur en latte art">
+            </a>
+            <a class="carousel-item" href="#trois!">
+                <img src="assets/cafe-05.jpg" alt="Cappuccino servi dans un café">
+            </a>
+        </div>
+
+        <div class="center-align" style="margin-top:1rem">
+            <button class="btn-floating waves-effect waves-light brown darken-3" id="carousel-precedent"
+                aria-label="Image précédente">
+                <i class="material-icons">chevron_left</i>
+            </button>
+
+            <button class="btn-floating waves-effect waves-light brown darken-3" id="carousel-suivant"
+                aria-label="Image suivante">
+                <i class="material-icons">chevron_right</i>
+            </button>
+        </div>
+    </section>
 
     <main class="container">
 
@@ -188,6 +220,40 @@
             <div class="container">© 2026 Torréfacteur</div>
         </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        // Initialisation obligatoire du Carousel : sans cet appel, le composant
+        // reste une simple liste d'images empilées.
+        document.addEventListener('DOMContentLoaded', function () {
+            var element = document.getElementById('carousel-cafes');
+
+            var carousel = M.Carousel.init(element, {
+                indicators: true,
+                duration: 250,
+                padding: 40
+            });
+
+            // Les deux boutons font défiler les images.
+            document.getElementById('carousel-precedent').addEventListener('click', function () {
+                carousel.prev();
+            });
+
+            document.getElementById('carousel-suivant').addEventListener('click', function () {
+                carousel.next();
+            });
+
+            // Défilement automatique, mis en pause quand la souris survole.
+            var defilement = setInterval(function () {
+                carousel.next();
+            }, 4000);
+
+            element.addEventListener('mouseenter', function () {
+                clearInterval(defilement);
+            });
+        });
+    </script>
 
 </body>
 
