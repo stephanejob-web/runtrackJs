@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Création de compte | Job 02</title>
+
+    <!-- Materialize 1.0.0 via CDN, aucun fichier CSS de notre côté -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+
+    <!-- ============ En-tête ============
+         nav-wrapper aligne le contenu, la classe de couleur teal colore la barre
+         et right pousse la liste de liens vers la droite. -->
+    <header>
+        <nav class="teal darken-2">
+            <div class="nav-wrapper container">
+                <a href="index.html" class="brand-logo">LaPlateforme_</a>
+
+                <ul class="right hide-on-small-only">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="active"><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sur très petit écran les liens passent sous la barre plutôt que
+             de déborder : pas de sidenav ici, elle demanderait du JavaScript. -->
+        <ul class="hide-on-med-and-up teal lighten-1 center-align">
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Accueil</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Inscription</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Connexion</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Rechercher</a></li>
+        </ul>
+    </header>
+
+    <!-- ============ Formulaire de création de compte ============ -->
+    <section>
+        <h1>Création de compte</h1>
+
+        <form action="index.html" method="post">
+
+            <fieldset>
+                <legend>Civilité</legend>
+
+                <input type="radio" id="civilite-madame" name="civilite" value="madame" checked>
+                <label for="civilite-madame">Madame</label>
+
+                <input type="radio" id="civilite-monsieur" name="civilite" value="monsieur">
+                <label for="civilite-monsieur">Monsieur</label>
+
+                <input type="radio" id="civilite-autre" name="civilite" value="autre">
+                <label for="civilite-autre">Autre</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Identité</legend>
+
+                <p>
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </p>
+
+                <p>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </p>
+
+                <p>
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Identifiants</legend>
+
+                <p>
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="motdepasse">Mot de passe</label>
+                    <input type="password" id="motdepasse" name="motdepasse" required>
+                </p>
+
+                <p>
+                    <label for="motdepasse-confirmation">Confirmation du mot de passe</label>
+                    <input type="password" id="motdepasse-confirmation" name="motdepasse_confirmation" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Passions</legend>
+
+                <input type="checkbox" id="passion-informatique" name="passions[]" value="informatique">
+                <label for="passion-informatique">Informatique</label>
+
+                <input type="checkbox" id="passion-voyages" name="passions[]" value="voyages">
+                <label for="passion-voyages">Voyages</label>
+
+                <input type="checkbox" id="passion-sport" name="passions[]" value="sport">
+                <label for="passion-sport">Sport</label>
+
+                <input type="checkbox" id="passion-lecture" name="passions[]" value="lecture">
+                <label for="passion-lecture">Lecture</label>
+            </fieldset>
+
+            <p>
+                <button type="submit">Créer mon compte</button>
+            </p>
+        </form>
+    </section>
+
+    <!-- ============ Pied de page ============ -->
+    <footer>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html">Inscription</a></li>
+            <li><a href="index.html">Connexion</a></li>
+            <li><a href="index.html">Rechercher</a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>
