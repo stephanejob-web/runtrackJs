@@ -4,21 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Création de compte | Job 01</title>
+    <title>Création de compte | Job 02</title>
+
+    <!-- Materialize 1.0.0 via CDN, aucun fichier CSS de notre côté -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
 
-    <!-- ============ En-tête ============ -->
+    <!-- ============ En-tête ============
+         nav-wrapper aligne le contenu, la classe de couleur teal colore la barre
+         et right pousse la liste de liens vers la droite. -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="index.html">Inscription</a></li>
-                <li><a href="index.html">Connexion</a></li>
-                <li><a href="index.html">Rechercher</a></li>
-            </ul>
+        <nav class="teal darken-2">
+            <div class="nav-wrapper container">
+                <a href="index.html" class="brand-logo">LaPlateforme_</a>
+
+                <ul class="right hide-on-small-only">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="active"><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
         </nav>
+
+        <!-- Sur très petit écran les liens passent sous la barre plutôt que
+             de déborder : pas de sidenav ici, elle demanderait du JavaScript. -->
+        <ul class="hide-on-med-and-up teal lighten-1 center-align">
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Accueil</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Inscription</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Connexion</a></li>
+            <li class="inline"><a href="index.html" class="white-text btn-flat">Rechercher</a></li>
+        </ul>
     </header>
 
     <!-- ============ Formulaire de création de compte ============ -->
