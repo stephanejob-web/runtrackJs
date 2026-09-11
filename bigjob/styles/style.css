@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Styles propres au projet. Tout le reste vient de Bootstrap 5.
+   ========================================================================== */
+
+body {
+    background: #f5f6f8;
+}
+
+.page-accueil {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #f5f6f8 0%, #e9edf5 100%);
+}
+
+/* ===================== Pastille « Connecté » ===================== */
+
+.pastille-connecte {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, .25);
+}
+
+/* ===================== Calendrier ===================== */
+
+.calendrier-entetes,
+.calendrier-grille {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.calendrier-entetes {
+    margin-bottom: 6px;
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #6c757d;
+    text-align: center;
+}
+
+.calendrier-case {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 62px;
+    padding: 6px 2px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color .15s, background .15s, transform .15s;
+}
+
+.calendrier-case:hover:not(:disabled) {
+    border-color: #0d6efd;
+    background: #f0f6ff;
+    transform: translateY(-1px);
+}
+
+.calendrier-case--vide {
+    background: transparent;
+    border: 0;
+    cursor: default;
+}
+
+/* Un jour passé reste lisible mais n'est plus actionnable. */
+.calendrier-case--passee {
+    background: #f1f3f5;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.calendrier-case--aujourdhui {
+    border-color: #0d6efd;
+    border-width: 2px;
+}
+
+.calendrier-case--demande {
+    background: #f8fbff;
+}
+
+.calendrier-numero {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* ===================== Puces de statut ===================== */
+
+.puce {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.puce-en_attente {
+    background: #ffc107;
+}
+
+.puce-acceptee {
+    background: #198754;
+}
+
+.puce-refusee {
+    background: #dc3545;
+}
+
+/* ===================== Petits écrans ===================== */
+
+@media (max-width: 575.98px) {
+    .calendrier-case {
+        min-height: 46px;
+        border-radius: 8px;
+    }
+
+    .calendrier-numero {
+        font-size: .8rem;
+    }
+
+    .calendrier-entetes {
+        font-size: .62rem;
+    }
+}
