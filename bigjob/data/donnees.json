@@ -1,0 +1,58 @@
+{
+    "_lisezMoi": "Jeu de données de départ. Il est chargé une seule fois puis recopié dans le localStorage, qui devient la source de vérité. Les demandes utilisent un décalage en jours par rapport à aujourd'hui, pour que la démo reste parlante quelle que soit la date.",
+
+    "domaineAutorise": "laplateforme.io",
+
+    "utilisateurs": [
+        {
+            "id": 1,
+            "prenom": "Awa",
+            "nom": "Diallo",
+            "email": "awa.diallo@laplateforme.io",
+            "motDePasse": "admin123",
+            "role": "administrateur"
+        },
+        {
+            "id": 2,
+            "prenom": "Marin",
+            "nom": "Costa",
+            "email": "marin.costa@laplateforme.io",
+            "motDePasse": "modo123",
+            "role": "moderateur"
+        },
+        {
+            "id": 3,
+            "prenom": "Léa",
+            "nom": "Nguyen",
+            "email": "lea.nguyen@laplateforme.io",
+            "motDePasse": "etudiant123",
+            "role": "etudiant"
+        },
+        {
+            "id": 4,
+            "prenom": "Tom",
+            "nom": "Bertrand",
+            "email": "tom.bertrand@laplateforme.io",
+            "motDePasse": "etudiant123",
+            "role": "etudiant"
+        },
+        {
+            "id": 5,
+            "prenom": "Inès",
+            "nom": "Fabre",
+            "email": "ines.fabre@laplateforme.io",
+            "motDePasse": "etudiant123",
+            "role": "etudiant"
+        }
+    ],
+
+    "demandes": [
+        { "id": 1, "utilisateurId": 3, "decalageJours": -4, "statut": "acceptee" },
+        { "id": 2, "utilisateurId": 4, "decalageJours": -2, "statut": "refusee" },
+        { "id": 3, "utilisateurId": 5, "decalageJours": -1, "statut": "en_attente" },
+        { "id": 4, "utilisateurId": 3, "decalageJours": 1, "statut": "en_attente" },
+        { "id": 5, "utilisateurId": 4, "decalageJours": 2, "statut": "acceptee" },
+        { "id": 6, "utilisateurId": 5, "decalageJours": 3, "statut": "en_attente" },
+        { "id": 7, "utilisateurId": 4, "decalageJours": 6, "statut": "en_attente" }
+    ]
+}
